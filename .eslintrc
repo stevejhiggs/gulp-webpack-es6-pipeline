@@ -1,0 +1,9 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "comma-dangle": 0,
+    "react/jsx-no-bind": [2, { // allow binding through arrow functions
+      "allowArrowFunctions": true,
+    }]
+  }
+}
