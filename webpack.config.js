@@ -33,7 +33,10 @@ module.exports = (options) => {
     },
     plugins: [],
     devtool: 'cheap-module-eval-source-map',
-    debug: true
+    debug: true,
+    eslint: {
+      configFile: path.join(__dirname, '.eslintrc')
+    }
   };
 
   return config;
