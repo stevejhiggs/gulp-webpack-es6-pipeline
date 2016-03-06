@@ -6,6 +6,7 @@ const commonConfig = require('./webpack.config');
 
 module.exports = (options) => {
   const releaseConfig = Object.create(commonConfig(options));
+  releaseConfig.debug = false;
   releaseConfig.devtool = 'sourcemap';
   releaseConfig.plugins = releaseConfig.plugins.concat(
     new webpack.DefinePlugin({
