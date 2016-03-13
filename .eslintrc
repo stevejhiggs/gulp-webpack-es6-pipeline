@@ -5,5 +5,11 @@
     "react/jsx-no-bind": [2, { // allow binding through arrow functions
       "allowArrowFunctions": true,
     }]
+  },
+  parserOptions: {
+    ecmaVersion: 6,
+    ecmaFeatures: {
+      experimentalObjectRestSpread: true
+    }
   }
 }
