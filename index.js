@@ -5,42 +5,51 @@ const webpack = require('webpack');
 const config = require('./webpack.config');
 const releaseConfig = require('./webpack.config.release');
 
+const handleWebpackOutput = (err, stats) => {
+  if (err) throw new gutil.PluginError('es6Pipeline', err);
+  gutil.log('[es6Pipeline]', stats.toString({
+    colors: true,
+    chunks: false
+  }));
+};
+
+const getDevCompiler = (options) => {
+  return webpack(config(options));
+};
+
+const getReleaseCompiler = (options) => {
+  return webpack(releaseConfig(options));
+};
+
 const registerBuildGulpTasks = (gulp, options) => {
-  gulp.task('es6Pipeline:build:dev', function (done) {
-    webpack(config(options), function (err, stats) {
-      if (err) throw new gutil.PluginError('es6Pipeline:build:dev', err);
-      gutil.log('[es6Pipeline:build:dev]', stats.toString({
-        colors: true,
-        chunks: false
-      }));
+  gulp.task('es6Pipeline:build:dev', (done) => {
+    const compiler = getDevCompiler(options);
+    compiler.run((err, stats) => {
+      handleWebpackOutput(err, stats);
       done();
     });
   });
 
-  gulp.task('es6Pipeline:build:release', function (done) {
-    webpack(releaseConfig(options), function (err, stats) {
-      if (err) throw new gutil.PluginError('es6Pipeline:build:release', err);
-      gutil.log('[es6Pipeline:build:release]', stats.toString({
-        colors: true,
-        chunks: false
-      }));
+  gulp.task('es6Pipeline:build:release', (done) => {
+    const compiler = getReleaseCompiler(options);
+    compiler.run((err, stats) => {
+      handleWebpackOutput(err, stats);
       done();
     });
   });
 
-  gulp.task('es6Pipeline:watch', ['es6Pipeline:build:dev'], function () {
-    webpack(config(options)).watch({
+  gulp.task('es6Pipeline:watch', ['es6Pipeline:build:dev'], () => {
+    const compiler = getDevCompiler(options);
+    compiler.watch({
       aggregateTimeout: 300 // wait so long for more changes
-    }, function (err, stats) {
-      if (err) throw new gutil.PluginError('es6Pipeline:watch', err);
-      gutil.log('[es6Pipeline:watch]', stats.toString({
-        colors: true,
-        chunks: false
-      }));
+    }, (err, stats) => {
+      handleWebpackOutput(err, stats);
     });
   });
 };
 
 module.exports = {
-  registerBuildGulpTasks: registerBuildGulpTasks
+  registerBuildGulpTasks: registerBuildGulpTasks,
+  getDevCompiler: getDevCompiler,
+  getReleaseCompiler: getReleaseCompiler
 };
