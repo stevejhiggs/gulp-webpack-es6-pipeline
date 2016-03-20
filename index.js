@@ -10,7 +10,8 @@ const registerBuildGulpTasks = (gulp, options) => {
     webpack(config(options), function (err, stats) {
       if (err) throw new gutil.PluginError('es6Pipeline:build:dev', err);
       gutil.log('[es6Pipeline:build:dev]', stats.toString({
-        colors: true
+        colors: true,
+        chunks: false
       }));
       done();
     });
@@ -20,7 +21,8 @@ const registerBuildGulpTasks = (gulp, options) => {
     webpack(releaseConfig(options), function (err, stats) {
       if (err) throw new gutil.PluginError('es6Pipeline:build:release', err);
       gutil.log('[es6Pipeline:build:release]', stats.toString({
-        colors: true
+        colors: true,
+        chunks: false
       }));
       done();
     });
@@ -32,7 +34,8 @@ const registerBuildGulpTasks = (gulp, options) => {
     }, function (err, stats) {
       if (err) throw new gutil.PluginError('es6Pipeline:watch', err);
       gutil.log('[es6Pipeline:watch]', stats.toString({
-        colors: true
+        colors: true,
+        chunks: false
       }));
     });
   });
