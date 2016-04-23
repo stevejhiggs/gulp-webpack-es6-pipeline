@@ -26,8 +26,10 @@ module.exports = (options) => {
           test: /\.(js|jsx)$/,
           loader: require.resolve('babel-loader'),
           query: {
-            presets: ['es2015', 'react'],
-            plugins: ['transform-object-rest-spread']
+            presets: [
+              require.resolve('babel-preset-es2015'),
+              require.resolve('babel-preset-react')
+            ]
           }
         }
       ]
