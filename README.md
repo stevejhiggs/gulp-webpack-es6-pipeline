@@ -51,14 +51,14 @@ es6Pipeline.registerBuildGulpTasks(
   gulp,
   {
     entryPoints: {
-      'myNiceBundle': '/scripts/myentrypoint.js'
+      'myNiceBundle': __dirname + '/scripts/myentrypoint.js'
     },
-    outputDir: '/bundles'
+    outputDir: __dirname + '/bundles'
   }
 );
 ```
 
-Will result in a bundle called `myNiceBundle.js` in `/bundles`
+Will result in a bundle called `myNiceBundle.js` in `/bundles` under the root of your project
 
 ## gulp commands
 
