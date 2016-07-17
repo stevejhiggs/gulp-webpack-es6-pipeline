@@ -94,7 +94,7 @@ I know, but trust me and stick with it.
 ### why no support for X?
 
 I've kept this intentionally simple but feel free to contribute and we'll see if
-there isn't some way to easily role in other features.
+there isn't some way to easily roll in other features.
 
 ### why no support for hotloading and the webpack dev server?
 
