@@ -27,15 +27,19 @@ module.exports = (options) => {
           loader: require.resolve('babel-loader'),
           query: {
             presets: [
-              require.resolve('babel-preset-es2015'),
+              require.resolve('babel-preset-es2015-loose'),
               require.resolve('babel-preset-react')
+            ],
+            plugins: [
+              require.resolve('babel-plugin-transform-es3-property-literals'),
+              require.resolve('babel-plugin-transform-es3-member-expression-literals')
             ]
           }
         }
       ]
     },
     plugins: [],
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'cheap-source-map',
     debug: true,
     eslint: {
       configFile: path.join(__dirname, '.eslintrc')
