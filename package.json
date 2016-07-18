@@ -1,6 +1,6 @@
 {
   "name": "gulp-webpack-es6-pipeline",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "easy transpiling and bundling of es6 back to es5",
   "main": "index.js",
   "engines": {
@@ -18,6 +18,7 @@
   "dependencies": {
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
+    "babel-plugin-transform-es3-member-expression-literals": "^6.8.0",
     "babel-plugin-transform-es3-property-literals": "^6.8.0",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015-loose": "^7.0.0",
