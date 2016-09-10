@@ -27,12 +27,8 @@ module.exports = (options) => {
           loader: require.resolve('babel-loader'),
           query: {
             presets: [
-              require.resolve('babel-preset-es2015-loose'),
+              [require.resolve('babel-preset-es2015'), { loose: true }],
               require.resolve('babel-preset-react')
-            ],
-            plugins: [
-              require.resolve('babel-plugin-transform-es3-property-literals'),
-              require.resolve('babel-plugin-transform-es3-member-expression-literals')
             ]
           }
         }
