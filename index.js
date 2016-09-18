@@ -41,7 +41,8 @@ const registerBuildGulpTasks = (gulp, options) => {
   gulp.task('es6Pipeline:watch', ['es6Pipeline:build:dev'], () => {
     const compiler = getDevCompiler(options);
     compiler.watch({
-      aggregateTimeout: 300 // wait so long for more changes
+      aggregateTimeout: 300, // wait so long for more changes
+      poll: 2000 // windows needs polling to pick up changes :(
     }, (err, stats) => {
       handleWebpackOutput(err, stats);
     });
