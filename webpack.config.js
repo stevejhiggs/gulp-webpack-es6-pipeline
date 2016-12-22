@@ -4,9 +4,12 @@ const path = require('path');
 
 module.exports = (options) => {
   const config = {
-    resolveLoader: {root: path.join(__dirname, 'node_modules')},
     resolve: {
-      extensions: ['', '.js', '.jsx']
+      modules: [
+        'node_modules',
+        path.join(__dirname, 'node_modules')
+      ],
+      extensions: ['.js', '.jsx', '.json']
     },
     entry: options.entryPoints,
     output: {
@@ -14,20 +17,28 @@ module.exports = (options) => {
       filename: '[name].js'
     },
     module: {
-      preLoaders: [
+      rules: [
         {
           test: /\.(js|jsx)$/,
+          enforce: 'pre',
           exclude: /node_modules/,
-          loader: require.resolve('eslint-loader')
-        }
-      ],
-      loaders: [
+          loader: require.resolve('eslint-loader'),
+          query: {
+            configFile: path.join(__dirname, '.eslintrc')
+          }
+        },
         {
           test: /\.(js|jsx)$/,
           loader: require.resolve('babel-loader'),
-          query: {
+          options: {
             presets: [
-              [require.resolve('babel-preset-es2015'), { loose: true }],
+              [
+                require.resolve('babel-preset-es2015'), 
+                { 
+                  loose: true,
+                  modules: false 
+                }
+              ],
               require.resolve('babel-preset-react')
             ]
           }
@@ -36,9 +47,9 @@ module.exports = (options) => {
     },
     plugins: [],
     devtool: 'cheap-source-map',
-    debug: true,
-    eslint: {
-      configFile: path.join(__dirname, '.eslintrc')
+    performance: {
+      maxAssetSize: 1500000,
+      maxEntrypointSize: 1500000
     }
   };
 

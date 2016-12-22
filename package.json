@@ -1,10 +1,10 @@
 {
   "name": "gulp-webpack-es6-pipeline",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "easy transpiling and bundling of es6 back to es5",
   "main": "index.js",
   "engines": {
-    "node": ">=4.2.0"
+    "node": ">=6.3.0"
   },
   "repository": {
     "type": "git",
@@ -16,19 +16,19 @@
   "author": "steve higgs",
   "license": "MIT",
   "dependencies": {
-    "babel-core": "^6.14.0",
-    "babel-loader": "^6.2.5",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
     "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-es2015": "^6.14.0",
-    "babel-preset-react": "^6.11.1",
-    "eslint": "^3.5.0",
-    "eslint-config-airbnb": "11.0.0",
-    "eslint-loader": "^1.5.0",
-    "eslint-plugin-import": "^1.14.0",
-    "eslint-plugin-jsx-a11y": "^2.2.1",
-    "eslint-plugin-react": "^6.2.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "13.0.0",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
     "gulp": "^3.9.1",
     "gulp-util": "^3.0.7",
-    "webpack": "^1.13.2"
+    "webpack": "^2.2.0-rc.1"
   }
 }

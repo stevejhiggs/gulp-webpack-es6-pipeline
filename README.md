@@ -2,7 +2,7 @@
 
 Want all the hotness of es6 but not want the hassle of figuring out how to get:
 
-* webpack
+* webpack 2
 * babel
 * gulp
 * eslint
