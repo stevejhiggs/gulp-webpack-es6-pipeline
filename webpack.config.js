@@ -39,7 +39,8 @@ module.exports = (options) => {
                   modules: false 
                 }
               ],
-              require.resolve('babel-preset-react')
+              require.resolve('babel-preset-react'),
+              require.resolve('babel-preset-stage-3')
             ]
           }
         }
