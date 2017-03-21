@@ -82,7 +82,7 @@ You now have the following commands:
 If you don't like the built in linting rules you can override them in one of two ways:
 
 * put a .eslintrc file in the root of your project
-* set the .eslintrc setting in the options (see options above)
+* set the esLintFile setting in the options (see options above)
 
 ## features
 
