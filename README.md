@@ -68,6 +68,22 @@ You now have the following commands:
 * `gulp es6Pipeline:build:release` - build all the files in minified release mode
 * `gulp es6Pipeline:watch` - rebuilds whenever a file is changed
 
+## options
+```
+{
+  entryPoints, // required,  an array of bundlename to entrypoint location mappings,
+  outputDir, // required,  where the resulting bundles get written,
+  esLintFile // optional, full path to your .eslintrc file
+}
+```
+
+### using custom linting rules
+
+If you don't like the built in linting rules you can override them in one of two ways:
+
+* put a .eslintrc file in the root of your project
+* set the .eslintrc setting in the options (see options above)
+
 ## features
 
 * linting (eslint + airbnb standard)

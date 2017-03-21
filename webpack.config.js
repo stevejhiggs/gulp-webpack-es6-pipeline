@@ -1,6 +1,25 @@
-'use strict';
-
 const path = require('path');
+const fs = require('fs');
+
+const findEslintFile = (options) => {
+  if (options.eslintFile) {
+    if (fs.existsSync(options.eslintFile)) {
+      console.log(`using custom eslint file at ${options.eslintFile}`);
+      return options.eslintFile;
+    }
+
+    console.warn(`custom eslint file not found at ${options.eslintFile}`);
+  }
+
+  const rootEslint = path.resolve('./.eslintrc');
+  if (fs.existsSync(rootEslint)) {
+    console.log(`using custom eslint file at ${rootEslint}`);
+    return rootEslint;
+  }
+
+  // default internal file
+  return path.join(__dirname, '.eslintrc');
+};
 
 module.exports = (options) => {
   const config = {
@@ -24,7 +43,7 @@ module.exports = (options) => {
           exclude: /node_modules/,
           loader: require.resolve('eslint-loader'),
           query: {
-            configFile: path.join(__dirname, '.eslintrc')
+            configFile: findEslintFile(options)
           }
         },
         {
@@ -33,10 +52,10 @@ module.exports = (options) => {
           options: {
             presets: [
               [
-                require.resolve('babel-preset-es2015'), 
-                { 
+                require.resolve('babel-preset-es2015'),
+                {
                   loose: true,
-                  modules: false 
+                  modules: false
                 }
               ],
               require.resolve('babel-preset-react'),

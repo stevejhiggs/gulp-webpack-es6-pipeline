@@ -2,7 +2,8 @@
   "extends": "airbnb",
   "rules": {
     "comma-dangle": 0,
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "no-console": 1
   },
   "env": {
     "browser": true 
