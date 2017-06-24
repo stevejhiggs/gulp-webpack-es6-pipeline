@@ -33,12 +33,9 @@ module.exports = (options) => {
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
-    })
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin()
   );
-  releaseConfig.performance = {
-      maxAssetSize: 250000,
-      maxEntrypointSize: 250000
-    }
 
   return releaseConfig;
 };
