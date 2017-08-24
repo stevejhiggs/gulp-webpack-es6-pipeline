@@ -1,7 +1,4 @@
-'use strict';
-
 const webpack = require('webpack');
-const path = require('path');
 const commonConfig = require('./webpack.config');
 
 module.exports = (options) => {
@@ -10,7 +7,7 @@ module.exports = (options) => {
   releaseConfig.plugins = releaseConfig.plugins.concat(
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+        NODE_ENV: JSON.stringify('production')
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
