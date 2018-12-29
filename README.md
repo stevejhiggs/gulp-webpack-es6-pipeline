@@ -2,7 +2,7 @@
 
 Want all the hotness of es6 but not want the hassle of figuring out how to get:
 
-* webpack 2
+* webpack 4
 * babel
 * gulp
 * eslint
@@ -11,9 +11,11 @@ all set up and working together?
 
 Great, neither do I. That's why I did it once and built this package.
 
+*This project is now built around gulp 4.x, if you need gulp 3.x compatibility please use version 14.0.0*
+
 ## setting up
 
-* install node > v4 + npm (note: node v5 is preferred)
+* install node > v8 + npm
 * npm init your project in a folder `npm init`
 * install global gulp `npm install -g gulp`
 * add gulp package `npm install gulp --save-dev`

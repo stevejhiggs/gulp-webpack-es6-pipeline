@@ -37,7 +37,7 @@ const registerBuildGulpTasks = (gulp, options) => {
     });
   });
 
-  gulp.task('es6Pipeline:watch', ['es6Pipeline:build:dev'], () => {
+  gulp.task('es6Pipeline:watch', gulp.series('es6Pipeline:build:dev', () => {
     const compiler = getDevCompiler(options);
     compiler.watch({
       aggregateTimeout: 300, // wait so long for more changes
@@ -45,7 +45,7 @@ const registerBuildGulpTasks = (gulp, options) => {
     }, (err, stats) => {
       handleWebpackOutput(err, stats);
     });
-  });
+  }));
 };
 
 module.exports = {
