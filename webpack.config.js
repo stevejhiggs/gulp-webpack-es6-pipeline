@@ -23,6 +23,8 @@ const findEslintFile = (options) => {
 
 module.exports = (options) => {
   const config = {
+    cache: true,
+    mode: 'development',
     resolve: {
       modules: [
         'node_modules',
@@ -52,14 +54,14 @@ module.exports = (options) => {
           options: {
             presets: [
               [
-                require.resolve('babel-preset-es2015'),
+                require.resolve('@babel/preset-env'),
                 {
                   loose: true,
-                  modules: false
+                  modules: false,
+                  targets: "> 0.25%, not dead"
                 }
               ],
-              require.resolve('babel-preset-react'),
-              require.resolve('babel-preset-stage-3')
+              require.resolve('@babel/preset-react'),
             ]
           }
         }

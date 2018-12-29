@@ -1,13 +1,12 @@
-'use strict';
-
-const gutil = require('gulp-util');
+const log = require('fancy-log');
 const webpack = require('webpack');
+const PluginError = require('plugin-error');
 const config = require('./webpack.config');
 const releaseConfig = require('./webpack.config.release');
 
 const handleWebpackOutput = (err, stats) => {
-  if (err) throw new gutil.PluginError('es6Pipeline', err);
-  gutil.log('[es6Pipeline]', stats.toString({
+  if (err) throw new PluginError('es6Pipeline', err);
+  log('[es6Pipeline]', stats.toString({
     colors: true,
     chunks: false
   }));
