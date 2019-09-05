@@ -1,3 +1,6 @@
+## 16.0.0
+* upgrade to eslint 6 and upgrade all other dependancies
+
 ## 14.0.0
 * upgrade to webpack 4
 * last version to support gulp 3.x
