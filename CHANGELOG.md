@@ -1,3 +1,6 @@
+## 17.0.0
+* upgrade to eslint 7 and upgrade all other dependancies
+
 ## 16.0.0
 * upgrade to eslint 6 and upgrade all other dependancies
 
@@ -15,5 +18,5 @@
 * Dependency upgrade, considered a breaking change due to eslint rule changes
 
 ## 9.0.0
-* Can now set a custom .eslintrc and tsconfig location
+* Can now set a custom .eslintrc location
 * update to airbnb 14.1.0
