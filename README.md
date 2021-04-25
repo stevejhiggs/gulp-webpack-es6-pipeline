@@ -2,26 +2,26 @@
 
 Want all the hotness of es6 but not want the hassle of figuring out how to get:
 
-* webpack 4
-* babel
-* gulp
-* eslint
+- webpack 5
+- babel
+- gulp
+- eslint
 
 all set up and working together?
 
 Great, neither do I. That's why I did it once and built this package.
 
-*This project is now built around gulp 4.x, if you need gulp 3.x compatibility please use version 14.0.0*
+_This project is now built around gulp 4.x, if you need gulp 3.x compatibility please use version 14.0.0 or above_
 
 ## setting up
 
-* install node > v8 + npm
-* npm init your project in a folder `npm init`
-* install global gulp `npm install -g gulp`
-* add gulp package `npm install gulp --save-dev`
-* add this package `npm install gulp-webpack-es6-pipeline --save-dev`
-* create a file called `gulpfile.js in your project root`
-* in your gulpfile add the following:
+- install node > v8 + npm
+- npm init your project in a folder `npm init`
+- install global gulp `npm install -g gulp`
+- add gulp package `npm install gulp --save-dev`
+- add this package `npm install gulp-webpack-es6-pipeline --save-dev`
+- create a file called `gulpfile.js in your project root`
+- in your gulpfile add the following:
 
 ```
 const gulp = require('gulp');
@@ -66,11 +66,12 @@ Will result in a bundle called `myNiceBundle.js` in `/bundles` under the root of
 
 You now have the following commands:
 
-* `gulp es6Pipeline:build:dev` - build all the files in dev mode
-* `gulp es6Pipeline:build:release` - build all the files in minified release mode
-* `gulp es6Pipeline:watch` - rebuilds whenever a file is changed
+- `gulp es6Pipeline:build:dev` - build all the files in dev mode
+- `gulp es6Pipeline:build:release` - build all the files in minified release mode
+- `gulp es6Pipeline:watch` - rebuilds whenever a file is changed
 
 ## options
+
 ```
 {
   entryPoints, // required,  an array of bundlename to entrypoint location mappings,
@@ -83,15 +84,15 @@ You now have the following commands:
 
 If you don't like the built in linting rules you can override them in one of two ways:
 
-* put a .eslintrc file in the root of your project
-* set the esLintFile setting in the options (see options above)
+- put a .eslintrc file in the root of your project
+- set the esLintFile setting in the options (see options above)
 
 ## features
 
-* linting (eslint + airbnb standard)
-* babel (es6 -> es5)
-* webpack (bundling)
-* react support (jsx files handled automatically)
+- linting (eslint + airbnb standard)
+- babel (es6 -> es5)
+- webpack (bundling)
+- react support (jsx files handled automatically)
 
 and then dump out the bundles.
 
