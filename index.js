@@ -6,10 +6,13 @@ const releaseConfig = require('./webpack.config.release');
 
 const handleWebpackOutput = (err, stats) => {
   if (err) throw new PluginError('es6Pipeline', err);
-  log('[es6Pipeline]', stats.toString({
-    colors: true,
-    chunks: false
-  }));
+  log(
+    '[es6Pipeline]',
+    stats.toString({
+      colors: true,
+      chunks: false
+    })
+  );
 };
 
 const getDevCompiler = (options) => {
@@ -37,15 +40,21 @@ const registerBuildGulpTasks = (gulp, options) => {
     });
   });
 
-  gulp.task('es6Pipeline:watch', gulp.series('es6Pipeline:build:dev', () => {
-    const compiler = getDevCompiler(options);
-    compiler.watch({
-      aggregateTimeout: 300, // wait so long for more changes
-      poll: 2000 // windows needs polling to pick up changes :(
-    }, (err, stats) => {
-      handleWebpackOutput(err, stats);
-    });
-  }));
+  gulp.task(
+    'es6Pipeline:watch',
+    gulp.series('es6Pipeline:build:dev', () => {
+      const compiler = getDevCompiler(options);
+      compiler.watch(
+        {
+          aggregateTimeout: 300, // wait so long for more changes
+          poll: 2000 // windows needs polling to pick up changes :(
+        },
+        (err, stats) => {
+          handleWebpackOutput(err, stats);
+        }
+      );
+    })
+  );
 };
 
 module.exports = {

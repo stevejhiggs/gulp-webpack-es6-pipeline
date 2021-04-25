@@ -11,7 +11,8 @@
     "url": "git+https://github.com/stevejhiggs/gulp-webpack-es6-pipeline"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/prettier --write '**/*.{js,jsx,ts,tsx,css,html,yaml,json,md}'"
   },
   "author": "steve higgs",
   "license": "MIT",
@@ -33,5 +34,13 @@
   },
   "peerDependencies": {
     "gulp": "^4.0.2"
+  },
+  "prettier": {
+    "printWidth": 250,
+    "trailingComma": "none",
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
   }
 }

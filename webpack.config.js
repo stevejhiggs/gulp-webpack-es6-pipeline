@@ -27,12 +27,12 @@ module.exports = (options) => {
     mode: 'development',
     resolve: {
       modules: ['node_modules', path.join(__dirname, 'node_modules')],
-      extensions: ['.js', '.jsx', '.json'],
+      extensions: ['.js', '.jsx', '.json']
     },
     entry: options.entryPoints,
     output: {
       path: path.join(options.outputDir),
-      filename: '[name].js',
+      filename: '[name].js'
     },
     module: {
       rules: [
@@ -42,8 +42,8 @@ module.exports = (options) => {
           exclude: /node_modules/,
           loader: require.resolve('eslint-loader'),
           options: {
-            configFile: findEslintFile(options),
-          },
+            configFile: findEslintFile(options)
+          }
         },
         {
           test: /\.(js|jsx)$/,
@@ -55,21 +55,21 @@ module.exports = (options) => {
                 {
                   loose: true,
                   modules: false,
-                  targets: '> 0.25%, not dead',
-                },
+                  targets: '> 0.25%, not dead'
+                }
               ],
-              require.resolve('@babel/preset-react'),
-            ],
-          },
-        },
-      ],
+              require.resolve('@babel/preset-react')
+            ]
+          }
+        }
+      ]
     },
     plugins: [],
     devtool: 'cheap-source-map',
     performance: {
       maxAssetSize: 1500000,
-      maxEntrypointSize: 1500000,
-    },
+      maxEntrypointSize: 1500000
+    }
   };
 
   return config;
