@@ -1,6 +1,6 @@
 {
   "name": "gulp-webpack-es6-pipeline",
-  "version": "18.0.0",
+  "version": "18.0.1",
   "description": "easy transpiling and bundling of es6 back to es5",
   "main": "index.js",
   "engines": {

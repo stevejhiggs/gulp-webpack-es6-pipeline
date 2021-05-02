@@ -1,3 +1,7 @@
+## 18.0.1
+
+- Make sure we abort properly in the case of a compilation error
+
 ## 18.0.0
 
 - upgrade to webpack 5 and upgrade all other dependancies
