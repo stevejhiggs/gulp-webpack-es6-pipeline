@@ -13,6 +13,10 @@ Great, neither do I. That's why I did it once and built this package.
 
 _This project is now built around gulp 4.x, if you need gulp 3.x compatibility please use version 14.0.0 or above_
 
+## This library is no longer supported
+
+Everything supports es6 now and this library no longer serves a purpose
+
 ## setting up
 
 - install node > v8 + npm
